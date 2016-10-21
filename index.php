@@ -26,3 +26,10 @@ if (file_exists('./Models/'.$call.'.php')) {
         }
     }
 }
+
+//viewをインクルードします
+if (file_exists('./Views/'.$call.'.php')) {
+    include('./Views/'.$call.'.php');
+} else {
+    include('./Views/Error.php');
+}
