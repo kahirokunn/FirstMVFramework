@@ -1,5 +1,11 @@
 <?php
 
+if (empty($_SERVER['PATH_INFO'])) {
+    //紹介ページを表示
+    include('./views/index.php');
+    exit;
+}
+
 //スラッシュで区切られたurlを取得します
 $analysis = explode('/', $_SERVER['PATH_INFO']);
 $call;
@@ -10,6 +16,8 @@ foreach ($analysis as $value) {
         break;
     }
 }
+
+
 
 //modelをインクルードします
 if (file_exists('./Models/'.$call.'.php')) {
